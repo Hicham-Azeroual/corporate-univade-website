@@ -128,6 +128,7 @@ const Header = () => {
 				position="right"
 				className={styles.headerSidebar}
 				style={{ width: "280px" }}
+				showCloseIcon={false} // <-- Add this line
 			>
 				<div className={styles.headerSidebarContentInner}>
 					{/* Close Button at Top */}
