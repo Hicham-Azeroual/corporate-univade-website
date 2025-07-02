@@ -1,0 +1,172 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Brevis:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double:wght@700&display=swap");
+@import "tailwindcss";
+@import "primeicons/primeicons.css";
+
+.font-montserrat {
+  font-family: "Montserrat", sans-serif;
+}
+.font-brevis {
+  font-family: "Brevis", sans-serif;
+}
+.font-bitcount {
+  font-family: "Bitcount Grid Double", monospace;
+}
+
+.btn-gradient {
+  background: linear-gradient(90deg, #00f0ff 0%, #00ff94 100%);
+}
+
+.start-free-btn {
+  border-color: #00ff94;
+}
+
+.nav-link {
+  @apply text-white font-medium text-base transition-colors duration-200 hover:text-cyan-300;
+}
+
+.logo-letter {
+  opacity: 0.5;
+  animation: logoWaveOpacity 2.1s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.logo-letter:nth-child(1) { animation-delay: 0s; }
+.logo-letter:nth-child(2) { animation-delay: 0.15s; }
+.logo-letter:nth-child(3) { animation-delay: 0.3s; }
+.logo-letter:nth-child(4) { animation-delay: 0.45s; }
+.logo-letter:nth-child(5) { animation-delay: 0.6s; }
+.logo-letter:nth-child(6) { animation-delay: 0.75s; }
+.logo-letter:nth-child(7) { animation-delay: 0.9s; }
+
+@keyframes logoWaveOpacity {
+  0%   { opacity: 0.5; }
+  20%  { opacity: 1; }
+  50%  { opacity: 0.5; }
+  100% { opacity: 0.3; }
+}
+
+/* Override PrimeReact Menu and Sidebar styles */
+.p-menu {
+  background: #232346 !important;
+  border: none !important;
+}
+.p-menuitem-link {
+  color: white !important;
+}
+.p-menuitem-link:hover,
+.p-menuitem-link:hover > span,
+.p-menuitem-link:focus,
+.p-menuitem-link:focus > span {
+  color: #181A2A !important;
+  background: linear-gradient(90deg, #00f0ff 0%, #00ff94 100%) !important;
+}
+.p-menuitem-link:hover .pi,
+.p-menuitem-link:focus .pi {
+  color: #181A2A !important;
+}
+.p-sidebar {
+  background: #232346 !important;
+}
+.p-sidebar .p-sidebar-header {
+  background: #232346 !important;
+  border: none !important;
+}
+.p-sidebar-close {
+  color: #00f0ff !important;
+}
+
+@keyframes revealLetter {
+  from { opacity: 0; transform: translateY(1.5rem);}
+  to   { opacity: 1; transform: translateY(0);}
+}
+@keyframes glowSweep {
+  0%, 100% { opacity: 0; transform: scaleX(0);}
+  10% { opacity: 1; transform: scaleX(1);}
+  90% { opacity: 1; transform: scaleX(1);}
+  100% { opacity: 0; transform: scaleX(0);}
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  50% { border-color: transparent }
+}
+
+.typewriter-text {
+  display: inline-block;
+  overflow: hidden;
+  border-right: .15em solid #00ff94;
+  white-space: nowrap;
+  width: 0;
+  animation:
+    typing 3.5s steps(40, end) forwards,
+    blink-caret 0.75s step-end infinite;
+}
+
+@keyframes gradient-move {
+  0% { background-position: 0% 50% }
+  50% { background-position: 100% 50% }
+  100% { background-position: 0% 50% }
+}
+
+.animate-gradient-move {
+  background-size: 200% 200%;
+  animation: gradient-move 5s ease infinite;
+}
+
+@keyframes gradient-x {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+.animate-gradient-x {
+  animation: gradient-x 3s ease-in-out infinite;
+}
+
+/* Optional Glitch */
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  color: #00f0ff;
+  background: transparent;
+  clip: rect(0, 900px, 0, 0);
+  animation: glitch-anim 2s infinite linear alternate-reverse;
+}
+
+.glitch-text::after {
+  color: #00ff94;
+  animation-delay: .4s;
+}
+
+@keyframes glitch-anim {
+  0% {
+    clip: rect(42px, 9999px, 44px, 0);
+    transform: skew(0.5deg);
+  }
+  5% {
+    clip: rect(12px, 9999px, 80px, 0);
+    transform: skew(1deg);
+  }
+  10% {
+    clip: rect(72px, 9999px, 92px, 0);
+    transform: skew(-0.5deg);
+  }
+  15% {
+    clip: rect(28px, 9999px, 40px, 0);
+    transform: skew(-1deg);
+  }
+  20% {
+    clip: rect(12px, 9999px, 48px, 0);
+    transform: skew(0.5deg);
+  }
+  100% {
+    clip: rect(10px, 9999px, 80px, 0);
+  }
+}
