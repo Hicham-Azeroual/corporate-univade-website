@@ -9,9 +9,6 @@ const HeroSection = () => {
   const headerRef = useRef(null);
   const lettersRef = useRef([]);
   const sectionRef = useRef(null);
-  const bgRef = useRef(null);
-  const waveRef = useRef(null);
-  const particleRef = useRef(null);
 
   useHeroSectionAnimation({
     sectionRef,
@@ -19,9 +16,6 @@ const HeroSection = () => {
     descRef,
     btnsRef,
     imgRef,
-    bgRef,
-    waveRef,
-    particleRef,
   });
 
   const headerText = "Unleash Creativity with Low-Code Power!";
@@ -48,29 +42,7 @@ const HeroSection = () => {
     <section
       ref={sectionRef}
       className={styles.heroSection}
-
     >
-      {/* Background with parallax and wave overlay */}
-      <div ref={bgRef} className={styles.heroBg} />
-      <div ref={waveRef} className={styles.heroWave} />
-      {/* Particle effect */}
-      <div ref={particleRef} className={styles.heroParticles}>
-        {[...Array(12)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute"
-            style={{
-              width: "0.5rem",
-              height: "0.5rem",
-              background: "linear-gradient(135deg, #00f0ff, #00ff94)",
-              borderRadius: "9999px",
-              left: `${Math.random() * 100}vw`,
-              top: `${Math.random() * 100}vh`,
-            }}
-          />
-        ))}
-      </div>
-
       <div className={styles.heroContentWrap}>
         {/* Left: Text Content */}
         <div className={styles.heroTextCol}>

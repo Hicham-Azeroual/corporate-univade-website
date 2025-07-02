@@ -7,9 +7,6 @@ export default function useHeroSectionAnimation({
   descRef,
   btnsRef,
   imgRef,
-  bgRef,
-  waveRef,
-  particleRef,
 }) {
   useGSAP(() => {
     gsap.fromTo(
@@ -80,44 +77,6 @@ export default function useHeroSectionAnimation({
             ease: "sine.inOut",
           });
         },
-      }
-    );
-    gsap.fromTo(
-      bgRef.current,
-      { backgroundPosition: "0% 0%", scale: 1.1 },
-      {
-        backgroundPosition: "20% 20%",
-        scale: 1.3,
-        duration: 30,
-        ease: "none",
-        yoyo: true,
-        repeat: -1,
-      }
-    );
-    gsap.fromTo(
-      waveRef.current,
-      { backgroundPosition: "0% 0%" },
-      {
-        backgroundPosition: "100% 100%",
-        duration: 8,
-        ease: "linear",
-        repeat: -1,
-        yoyo: true,
-      }
-    );
-    const particles = particleRef.current.children;
-    gsap.fromTo(
-      particles,
-      { opacity: 0, y: 100, scale: 0.5 },
-      {
-        opacity: 1,
-        y: -100,
-        scale: 1,
-        duration: 6,
-        stagger: 0.2,
-        ease: "power2.inOut",
-        repeat: -1,
-        yoyo: true,
       }
     );
   }, []);

@@ -1,0 +1,106 @@
+.coreSection {
+  width: 100%;
+  background: #0a1a2f;
+  color: var(--color-light);
+  padding: 5rem 1.5rem 4rem 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.coreContentWrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  width: 100%;
+}
+
+@media (min-width: 900px) {
+  .coreContentWrap {
+    flex-direction: row;
+    align-items: center;
+    gap: 4rem;
+  }
+}
+
+.corePointsCol {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem; /* More space for better alignment */
+  justify-content: center;
+  position: relative;
+}
+
+.corePointWrapper {
+  position: relative;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.corePoint {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.3rem;
+  background: transparent;
+  border-left: 3px solid var(--color-brand);
+  padding-left: 1.2rem;
+  transition: box-shadow 0.2s;
+  z-index: 2;
+}
+
+.corePointIcon {
+  font-size: 2.2rem;
+  color: var(--color-brand);
+  margin-top: 0.15rem;
+  flex-shrink: 0;
+}
+
+.corePointTitle {
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  margin-bottom: 0.3rem;
+}
+
+.corePointDesc {
+  font-size: 1.05rem;
+  color: var(--color-light);
+  opacity: 0.92;
+  line-height: 1.6;
+}
+
+.coreImgCol {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  min-width: 340px;
+}
+
+.coreImgWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 680px;    /* Increased from 540px */
+  min-width: 320px;    /* Increased minimum */
+  height: 680px;       /* Increased from 540px */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.coreImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-main);
+  display: block;
+  z-index: 1;
+}
+
+/* Removed connectorLine and related styles */
