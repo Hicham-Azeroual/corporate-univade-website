@@ -1,210 +1,178 @@
-import React, { useState, useRef, useEffect } from "react";
-import { Menu } from "primereact/menu";
+import React, { useState, useEffect } from "react";
+import { Button } from "primereact/button";
 import { Sidebar } from "primereact/sidebar";
-import "primereact/resources/themes/lara-dark-indigo/theme.css";
-import "primereact/resources/primereact.min.css";
-import "primeicons/primeicons.css";
+import { Accordion, AccordionTab } from "primereact/accordion";
 import styles from "./Header.module.css";
 import navMenus from "../../../constants-data/navMenus";
 
 const Header = () => {
-	const menuRefs = useRef([]);
-	const [sidebarVisible, setSidebarVisible] = useState(false);
-	const [selectedMenu, setSelectedMenu] = useState(null);
-	const [scrolled, setScrolled] = useState(false);
+  const [sidebarVisible, setSidebarVisible] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(null);
 
-	useEffect(() => {
-		const onScroll = () => setScrolled(window.scrollY > 10);
-		window.addEventListener("scroll", onScroll);
-		return () => window.removeEventListener("scroll", onScroll);
-	}, []);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 10);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
-	const handleMenuToggle = (label) => {
-		setSelectedMenu(selectedMenu === label ? null : label);
-	};
+  const handleMenuItemClick = () => {
+    setSidebarVisible(false);
+    setActiveIndex(null);
+  };
 
-	// Close sidebar when clicking on menu items
-	const handleMenuItemClick = () => {
-		setSidebarVisible(false);
-		setSelectedMenu(null);
-	};
+  const colorBrand = "var(--color-brand)";
+  const colorAccent = "var(--color-accent)";
+  const colorAlt = "var(--color-alt)";
 
-	// Use CSS variable for colors
-	const colorBrand = "var(--color-brand)";
-	const colorAccent = "var(--color-accent)";
-	const colorAlt = "var(--color-alt)";
+  return (
+    <header className={`${styles.headerMain} ${scrolled ? styles.headerScrolled : ''}`}>
+      {/* Logo Section */}
+      <div className={styles.logoContainer}>
+        <a href="/" className={styles.logoLink}>
+          <span className={styles.logoText}>
+            {['U', 'n', 'i', 'v', 'a', 'd', 'e'].map((letter, index) => (
+              <span 
+                key={index}
+                className={styles.logoLetter}
+                style={{
+                  color: index % 2 === 0 ? colorBrand : index % 3 === 1 ? colorAccent : colorAlt,
+                  animationDelay: `${index * 0.1}s`
+                }}
+              >
+                {letter}
+              </span>
+            ))}
+          </span>
+        </a>
+      </div>
 
-	return (
-		<header
-			className={`${
-				scrolled ? styles.headerMainScrolled : ""
-			} ${styles.headerMain}`}
-		>
-			{/* Logo */}
-			<div className={styles.headerLogoWrap}>
-				<span className={`${styles.headerLogo} ${styles.logoAnimate}`}>
-					<span className={styles.logoLetter} style={{ color: colorBrand }}>
-						U
-					</span>
-					<span className={styles.logoLetter} style={{ color: colorAccent }}>
-						n
-					</span>
-					<span className={styles.logoLetter} style={{ color: colorAlt }}>
-						i
-					</span>
-					<span className={styles.logoLetter} style={{ color: colorAccent }}>
-						v
-					</span>
-					<span className={styles.logoLetter} style={{ color: colorBrand }}>
-						a
-					</span>
-					<span className={styles.logoLetter} style={{ color: colorAccent }}>
-						d
-					</span>
-					<span className={styles.logoLetter} style={{ color: colorBrand }}>
-						e
-					</span>
-				</span>
-			</div>
+      {/* Desktop Navigation */}
+      <nav className={styles.desktopNav}>
+        <ul className={styles.navList}>
+          {navMenus.map((menu, index) => (
+            <li key={index} className={styles.navItem}>
+              {menu.items ? (
+                <div className={styles.dropdown}>
+                  <Button 
+                    label={menu.label} 
+                    text 
+                    className={styles.navLink}
+                    icon={menu.icon}
+                    iconPos="left"
+                  />
+                  <div className={styles.dropdownContent}>
+                    {menu.items.map((item, idx) => (
+                      <a 
+                        key={idx} 
+                        href={item.url} 
+                        className={styles.dropdownLink}
+                      >
+                        {item.label}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <a href={menu.url} className={styles.navLink}>
+                  {menu.label}
+                </a>
+              )}
+            </li>
+          ))}
+        </ul>
+      </nav>
 
-			{/* Desktop Navigation */}
-			<nav className={styles.headerNav}>
-				{navMenus.map((nav, idx) => (
-					<div key={nav.label} className={styles.headerNavItem}>
-						<button
-							className={styles.navLink}
-							onClick={(e) => menuRefs.current[idx]?.toggle(e)}
-							type="button"
-						>
-							<i className={`${nav.icon} ${styles.navLinkIcon}`}></i>
-							<span>{nav.label}</span>
-							<i className={`pi pi-angle-down ${styles.navLinkCaret}`}></i>
-						</button>
-						<Menu
-							model={nav.items}
-							popup
-							ref={(el) => (menuRefs.current[idx] = el)}
-							className={styles.headerMenuPopup}
-						/>
-					</div>
-				))}
-			</nav>
+      {/* Desktop Action Buttons */}
+      <div className={styles.actionButtons}>
+        <Button 
+          label="Book Demo" 
+          className={`${styles.actionButton} ${styles.primaryButton}`}
+          href="#demo"
+        />
+        <Button 
+          label="Start Free" 
+          className={`${styles.actionButton} ${styles.secondaryButton}`}
+          href="#start"
+        />
+      </div>
 
-			{/* Desktop Action Buttons */}
-			<div className={styles.headerActions}>
-				<a href="#demo" className="btn-main">
-					Book Demo
-				</a>
-				<a
-					href="#start"
-					className="btn-main"
-					style={{
-						background: "transparent",
-						color: colorAccent,
-						border: `2px solid ${colorAccent}`,
-					}}
-				>
-					Start Free
-				</a>
-			</div>
+      {/* Mobile Menu Button */}
+      <Button 
+        icon="pi pi-bars" 
+        className={styles.mobileMenuButton}
+        onClick={() => setSidebarVisible(true)}
+        text
+        aria-label="Menu"
+      />
 
-			{/* Mobile Hamburger Icon */}
-			<button
-				className={styles.headerHamburger}
-				onClick={() => setSidebarVisible(true)}
-				type="button"
-				aria-label="Open menu"
-			>
-				<i className="pi pi-bars"></i>
-			</button>
+      {/* Mobile Sidebar */}
+      <Sidebar
+        visible={sidebarVisible}
+        onHide={() => setSidebarVisible(false)}
+        position="right"
+        className={styles.mobileSidebar}
+        showCloseIcon={false}
+        blockScroll
+      >
+        <div className={styles.sidebarHeader}>
+          <h3 className={styles.sidebarTitle}>Menu</h3>
+          <Button 
+            icon="pi pi-times" 
+            className={styles.sidebarCloseButton}
+            onClick={() => setSidebarVisible(false)}
+            text
+            aria-label="Close"
+          />
+        </div>
 
-			{/* Mobile Sidebar */}
-			<Sidebar
-				visible={sidebarVisible}
-				onHide={() => {
-					setSidebarVisible(false);
-					setSelectedMenu(null);
-				}}
-				position="right"
-				className={styles.headerSidebar}
-				style={{ width: "280px" }}
-				showCloseIcon={false} // <-- Add this line
-			>
-				<div className={styles.headerSidebarContentInner}>
-					{/* Close Button at Top */}
-					<div className={styles.headerSidebarTopRow}>
-						<span className={styles.headerSidebarMenuTitle}>Menu</span>
-						<button
-							className={styles.headerSidebarClose}
-							onClick={() => setSidebarVisible(false)}
-							aria-label="Close menu"
-						>
-							<i className="pi pi-times"></i>
-						</button>
-					</div>
+        <Accordion
+          activeIndex={activeIndex}
+          onTabChange={(e) => setActiveIndex(e.index)}
+          className={styles.sidebarAccordion}
+        >
+          {navMenus.map((menu, index) => (
+            <AccordionTab
+              key={index}
+              header={
+                <div className={styles.accordionHeader}>
+                  <i className={`pi ${menu.icon} ${styles.accordionIcon}`} />
+                  <span>{menu.label}</span>
+                </div>
+              }
+              className={styles.accordionTab}
+            >
+              {menu.items && menu.items.map((item, idx) => (
+                <a
+                  key={idx}
+                  href={item.url}
+                  className={styles.accordionLink}
+                  onClick={handleMenuItemClick}
+                >
+                  {item.label}
+                </a>
+              ))}
+            </AccordionTab>
+          ))}
+        </Accordion>
 
-					{/* Navigation Menu */}
-					{navMenus.map((nav) => (
-						<div key={nav.label} className={styles.headerSidebarMenu}>
-							<button
-								className={styles.headerSidebarMenuBtn}
-								onClick={() => handleMenuToggle(nav.label)}
-								type="button"
-							>
-								<i
-									className={`${nav.icon} ${styles.headerSidebarMenuIcon}`}
-									style={{ color: colorBrand }}
-								></i>
-								<span className={styles.headerSidebarMenuLabel}>
-									{nav.label}
-								</span>
-								<i
-									className={`pi ${
-										selectedMenu === nav.label
-											? "pi-angle-up"
-											: "pi-angle-down"
-									} ${styles.headerSidebarMenuCaret}`}
-									style={{ color: colorBrand }}
-								></i>
-							</button>
-							{selectedMenu === nav.label && (
-								<div className={styles.headerSidebarSubmenu}>
-									{nav.items.map((item, index) => (
-										<a
-											key={index}
-											href={item.url}
-											className={styles.headerSidebarSubmenuItem}
-											onClick={handleMenuItemClick}
-										>
-											{item.label}
-										</a>
-									))}
-								</div>
-							)}
-						</div>
-					))}
-
-					{/* Action Buttons in Sidebar */}
-					<div className={styles.headerSidebarActions}>
-						<a
-							href="#demo"
-							className={`btn-main ${styles.headerSidebarActionDemo}`}
-							onClick={handleMenuItemClick}
-						>
-							Book Demo
-						</a>
-						<a
-							href="#start"
-							className={`btn-main ${styles.headerSidebarActionStart}`}
-							onClick={handleMenuItemClick}
-						>
-							Start Free
-						</a>
-					</div>
-				</div>
-			</Sidebar>
-		</header>
-	);
+        <div className={styles.sidebarActions}>
+          <Button 
+            label="Book Demo" 
+            className={`${styles.sidebarButton} ${styles.primaryButton}`}
+            onClick={handleMenuItemClick}
+            href="#demo"
+          />
+          <Button 
+            label="Start Free" 
+            className={`${styles.sidebarButton} ${styles.secondaryButton}`}
+            onClick={handleMenuItemClick}
+            href="#start"
+          />
+        </div>
+      </Sidebar>
+    </header>
+  );
 };
 
 export default Header;
