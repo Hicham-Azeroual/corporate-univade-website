@@ -12,7 +12,7 @@ const Footer = () => {
     { label: "Fonctionnalités", url: "#features" },
     { label: "Tarifs", url: "#pricing" },
     { label: "Templates", url: "#templates" },
-    { label: "Blog", url: "#blog" }
+    { label: "Blog", url: "#blog" },
   ];
 
   const resources = [
@@ -20,14 +20,14 @@ const Footer = () => {
     { label: "Tutoriels", url: "#tutorials" },
     { label: "API", url: "#api" },
     { label: "Statut", url: "#status" },
-    { label: "Support", url: "#support" }
+    { label: "Support", url: "#support" },
   ];
 
   const socialLinks = [
     { icon: "pi pi-twitter", url: "#", label: "Twitter" },
     { icon: "pi pi-linkedin", url: "#", label: "LinkedIn" },
     { icon: "pi pi-github", url: "#", label: "GitHub" },
-    { icon: "pi pi-youtube", url: "#", label: "YouTube" }
+    { icon: "pi pi-youtube", url: "#", label: "YouTube" },
   ];
 
   return (
@@ -38,11 +38,16 @@ const Footer = () => {
           {/* Brand Section */}
           <div className={styles.footerBrand}>
             <div className={styles.footerLogo}>
-              <span className={styles.logoPart1} style={{ color: colorBrand }}>NO</span>
-              <span className={styles.logoPart2} style={{ color: colorAccent }}>CODE</span>
+              <span className={styles.logoPart1} style={{ color: colorBrand }}>
+                NO
+              </span>
+              <span className={styles.logoPart2} style={{ color: colorAccent }}>
+                CODE
+              </span>
             </div>
             <p className={styles.footerDescription}>
-              La plateforme qui transforme vos idées en applications sans écrire une seule ligne de code.
+              La plateforme qui transforme vos idées en applications sans écrire
+              une seule ligne de code.
             </p>
             <div className={styles.footerSocial}>
               {socialLinks.map((social, index) => (
@@ -68,7 +73,7 @@ const Footer = () => {
                     label={link.label}
                     link
                     className={styles.footerLink}
-                    onClick={() => window.location.href = link.url}
+                    onClick={() => (window.location.href = link.url)}
                   />
                 </li>
               ))}
@@ -85,7 +90,7 @@ const Footer = () => {
                     label={resource.label}
                     link
                     className={styles.footerLink}
-                    onClick={() => window.location.href = resource.url}
+                    onClick={() => (window.location.href = resource.url)}
                   />
                 </li>
               ))}
@@ -96,7 +101,8 @@ const Footer = () => {
           <div className={styles.footerNewsletter}>
             <h3 className={styles.footerTitle}>Newsletter</h3>
             <p className={styles.footerText}>
-              Abonnez-vous pour recevoir les dernières actualités et offres spéciales.
+              Abonnez-vous pour recevoir les dernières actualités et offres
+              spéciales.
             </p>
             <div className={styles.newsletterForm}>
               <input
@@ -104,10 +110,7 @@ const Footer = () => {
                 placeholder="Votre email"
                 className={styles.newsletterInput}
               />
-              <Button
-                label="S'abonner"
-                className={styles.newsletterButton}
-              />
+              <Button label="S'abonner" className={styles.newsletterButton} />
             </div>
           </div>
         </div>
@@ -128,11 +131,7 @@ const Footer = () => {
               link
               className={styles.legalLink}
             />
-            <Button
-              label="Cookies"
-              link
-              className={styles.legalLink}
-            />
+            <Button label="Cookies" link className={styles.legalLink} />
           </div>
         </div>
       </div>

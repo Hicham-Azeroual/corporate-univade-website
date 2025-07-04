@@ -126,16 +126,10 @@ const SuccessStoriesSection = () => {
     <section ref={sectionRef} className={`${styles.successSection} section-bg`}>
       <div className={styles.successContentWrap}>
         <div className={styles.sectionHeader}>
-          <h2
-            ref={titleRef}
-            className={`${styles.successTitle} font-main text-brand`}
-          >
+          <h2 ref={titleRef} className="section-title">
             Trusted by Innovators Worldwide
           </h2>
-          <p
-            ref={leadRef}
-            className={`${styles.successLead} font-main text-light`}
-          >
+          <p ref={leadRef} className="section-lead">
             Discover how businesses are transforming with Univade's low-code
             platform.
           </p>
@@ -172,7 +166,7 @@ const SuccessStoriesSection = () => {
 
         <Button
           label="View All Success Stories"
-          className={`${styles.successBtn} font-main`}
+          className="btn-primary font-main"
           icon="pi pi-arrow-right"
           iconPos="right"
           rounded

@@ -61,19 +61,22 @@ const PlatformHighlightsSection = () => {
   return (
     <section ref={sectionRef} className={styles.highlightsSection}>
       <div className={styles.highlightsIntro}>
-        <h2 className={styles.highlightsMainTitle}>
+        <h2 className="section-title">
           The Future of Low-Code App Development—Fast, Smart & Limitless
         </h2>
-        <p className={styles.highlightsLead}>
-          Univade empowers everyone to build enterprise-grade applications faster, smarter, and without boundaries. Whether you’re a business user or a developer, Univade is your all-in-one platform for digital innovation.
+        <p className="section-lead">
+          Univade empowers everyone to build enterprise-grade applications
+          faster, smarter, and without boundaries. Whether you're a business
+          user or a developer, Univade is your all-in-one platform for digital
+          innovation.
         </p>
       </div>
       <div className={styles.highlightsCardsWrap}>
         {cards.map((card, idx) => (
           <div
             key={card.title}
-            className={styles.highlightsCard}
-            ref={el => (cardRefs.current[idx] = el)}
+            className="card"
+            ref={(el) => (cardRefs.current[idx] = el)}
           >
             <div className={styles.highlightsCardIcon}>
               <i className={card.icon}></i>
@@ -91,7 +94,7 @@ const PlatformHighlightsSection = () => {
         ))}
       </div>
       <div className={styles.highlightsActionWrap}>
-        <a href="#start" className={styles.highlightsBtn}>
+        <a href="#start" className="btn-primary">
           Start Building Smarter Apps
         </a>
       </div>

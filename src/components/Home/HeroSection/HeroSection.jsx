@@ -33,16 +33,17 @@ const HeroSection = () => {
     "Empower your ideas with a low-code platform built for speed and innovation. From idea to deployment in minutes — automate workflows, connect data, and craft stunning apps without writing a line of code."
       .split(" ")
       .map((word, i) => (
-        <span key={i} className="word" style={{ display: "inline-block", marginRight: "0.25em" }}>
+        <span
+          key={i}
+          className="word"
+          style={{ display: "inline-block", marginRight: "0.25em" }}
+        >
           {word}
         </span>
       ));
 
   return (
-    <section
-      ref={sectionRef}
-      className={styles.heroSection}
-    >
+    <section ref={sectionRef} className={styles.heroSection}>
       <div className={styles.heroContentWrap}>
         {/* Left: Text Content */}
         <div className={styles.heroTextCol}>
@@ -53,10 +54,7 @@ const HeroSection = () => {
             {descriptionText}
           </p>
           <div ref={btnsRef} className={styles.heroActions}>
-            <a
-              href="#start"
-              className={styles.heroBtn}
-            >
+            <a href="#start" className={styles.heroBtn}>
               Get Started Free
             </a>
             <a

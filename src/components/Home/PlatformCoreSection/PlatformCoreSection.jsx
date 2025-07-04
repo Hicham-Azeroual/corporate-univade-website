@@ -59,7 +59,7 @@ const PlatformCoreSection = () => {
             <div className={styles.corePointWrapper} key={pt.title}>
               <div
                 className={styles.corePoint}
-                ref={el => (pointRefs.current[idx] = el)}
+                ref={(el) => (pointRefs.current[idx] = el)}
               >
                 <div className={styles.corePointIcon}>
                   <i className={pt.icon}></i>
