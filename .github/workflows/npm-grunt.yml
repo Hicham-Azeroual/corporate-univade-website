@@ -23,7 +23,7 @@ jobs:
         run: npm run build
 
       - name: Deploy to Vercel
-        uses: amondnet/vercel-action@v3.0
+        uses: amondnet/vercel-action@v25
         with:
           vercel-token: "oAJC86xCk21d7pXiQzr8mEwv"  # ⚠️ Ne faites pas ça en public !
           vercel-project-id: "prj_0HRXUc43LdElZs7Lm6PcWW1ep9UX"  # ⚠️ Exposé dans le repo
