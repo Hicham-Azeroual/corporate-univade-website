@@ -31,7 +31,7 @@ const Header = () => {
       <div className={styles.logoContainer}>
         <a href="/" className={styles.logoLink}>
           <span className={styles.logoText}>
-            {['U', 'n', 'i', 'v', 'a', 'd', 'e'].map((letter, index) => (
+            {['M', 'n', 'i', 'v', 'a', 'd', 'e'].map((letter, index) => (
               <span 
                 key={index}
                 className={styles.logoLetter}
