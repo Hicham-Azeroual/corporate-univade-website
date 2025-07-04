@@ -22,7 +22,7 @@ const stories = [
     client: "RetailX",
     quote: "Our e-commerce app was live in under a week with Univade’s low-code tools.",
     metric: "50% reduction in launch time",
-    bgImage: "/images/person.jpg",
+    bgImage: "/images/person1.jpg",
   },
 ];
 
