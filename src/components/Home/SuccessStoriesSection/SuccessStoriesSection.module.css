@@ -1,0 +1,197 @@
+.successSection {
+  width: 100%;
+  padding: 5rem 1.5rem 4rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(135deg, #0a1a2f 0%, #0e2b3d 100%);
+}
+
+.successContentWrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.successTitle {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1.2rem;
+  letter-spacing: 0.5px;
+  position: relative;
+}
+
+.successLead {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.carousel {
+  max-width: 900px;
+  margin: 0 auto 1.5rem;
+}
+
+.carouselRoot {
+  position: relative;
+  overflow: hidden;
+}
+
+.carouselContentWrap {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-main);
+  overflow: hidden;
+}
+
+.carouselItem {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  padding: 3rem 2rem;
+  min-height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-lg);
+  transform: translateZ(0);
+}
+
+.carouselOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(24, 26, 42, 0.7) 0%,
+    rgba(14, 43, 61, 0.85) 100%
+  );
+  border-radius: var(--radius-lg);
+  z-index: 1;
+}
+
+.carouselContent {
+  position: relative;
+  text-align: center;
+  max-width: 700px;
+  z-index: 2;
+}
+
+.storyQuote {
+  font-style: italic;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.storyMetric {
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.storyClient {
+  font-size: 1.1rem;
+  opacity: 0.85;
+}
+
+.carouselNav {
+  font-size: 1.5rem;
+  background: rgba(24, 26, 42, 0.7);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem;
+  transition: background 0.3s, transform 0.3s;
+  z-index: 3;
+}
+
+.carouselNav:hover {
+  background: var(--color-brand);
+  color: var(--color-dark);
+  transform: scale(1.1);
+}
+
+.progressBar {
+  width: 100%;
+  max-width: 900px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  margin-bottom: 1.5rem;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: var(--gradient-hero);
+  width: 0;
+  transition: none;
+}
+
+.thumbnailContainer {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.thumbnailItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.thumbnailItem:hover,
+.thumbnailActive {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.thumbnailClient {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.successBtn {
+  padding: 1rem 2.5rem;
+  font-size: 1.15rem;
+}
+
+@media (max-width: 900px) {
+  .carousel {
+    max-width: 100%;
+  }
+  .carouselItem {
+    min-height: 400px;
+    padding: 2rem 1.5rem;
+  }
+  .storyQuote {
+    font-size: 1.2rem;
+  }
+  .storyMetric {
+    font-size: 1.1rem;
+  }
+  .storyClient {
+    font-size: 1rem;
+  }
+  .thumbnailClient {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .successTitle {
+    font-size: 2rem;
+  }
+  .successLead {
+    font-size: 1.1rem;
+  }
+  .carouselItem {
+    min-height: 350px;
+  }
+}

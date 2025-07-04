@@ -12,34 +12,33 @@ import PlatformHighlightsSection from "./components/Home/PlatformHighlightsSecti
 import PlatformCoreSection from "./components/Home/PlatformCoreSection/PlatformCoreSection.jsx";
 import Footer from "./components/Home/Footer/Footer.jsx";
 import AISupportSection from "./components/Home/AISupportSection/AISupportSection.jsx";
+import SuccessStoriesSection from "./components/Home/SuccessStoriesSection/SuccessStoriesSection.jsx";
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
 const App = () => {
-  
-
   // Animation function for sections
 
-
-    // Animate child elements with staggered effect
-    
+  // Animate child elements with staggered effect
 
   return (
     <PrimeReactProvider>
       <main className="min-h-screen">
         <Header />
-        
+
         {/* Hero Section - Special animation (no ref) */}
         <HeroSection />
-        
-        {/* Sections with scroll animations */}
-          <DefinitionSection />
-        
-          <PlatformHighlightsSection />
-        
-          <PlatformCoreSection />
-        
-          <AISupportSection />
 
+        {/* Sections with scroll animations */}
+        <DefinitionSection />
+
+        <PlatformHighlightsSection />
+
+        <PlatformCoreSection />
+
+        <AISupportSection />
+
+        {/* Success Stories Section - No animation */}
+        <SuccessStoriesSection />
 
         <Footer />
       </main>
