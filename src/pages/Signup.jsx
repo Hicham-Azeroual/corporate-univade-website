@@ -175,9 +175,9 @@ const Signup = () => {
               />
               <label htmlFor="license" className={styles.checkboxLabel}>
                 I agree to the{" "}
-                <a href="#license" target="_blank" rel="noopener noreferrer">
+                <Link to="/license" target="_blank" rel="noopener noreferrer">
                   Terms of Service
-                </a>
+                </Link>
               </label>
             </div>
             <Button

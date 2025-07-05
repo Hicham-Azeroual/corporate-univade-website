@@ -162,7 +162,9 @@ const SuccessStoriesSection = () => {
         </div>
 
         <div className={styles.thumbnailContainer}>
-          {stories.map((story, index) => thumbnailTemplate(story, index))}
+          {stories.map((story, index) => (
+            <div key={index}>{thumbnailTemplate(story, index)}</div>
+          ))}
         </div>
 
         <Link to="/signup" className="btn-primary font-main">

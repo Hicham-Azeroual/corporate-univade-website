@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { PrimeReactProvider } from "primereact/api";
 import HomePage from "./pages/HomePage";
 import Signup from "./pages/Signup";
+import Login from "./pages/Login";
+import License from "./pages/License";
 import NotFound from "./pages/NotFound";
 import "primereact/resources/themes/lara-dark-indigo/theme.css";
 import "primereact/resources/primereact.min.css";
@@ -26,6 +28,8 @@ const App = () => (
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/license" element={<License />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
