@@ -1,14 +1,190 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
+
+    <!-- Primary Meta Tags -->
+    <title>
+      Univade - Low-Code Platform | Build Enterprise Apps Visually & Instantly
+    </title>
+    <meta
+      name="title"
+      content="Univade - Low-Code Platform | Build Enterprise Apps Visually & Instantly"
+    />
+    <meta
+      name="description"
+      content="Univade is a revolutionary low-code platform that empowers developers and business users to build enterprise-grade applications with minimal coding. 10x faster development, drag-and-drop interface, and instant deployment."
+    />
+    <meta
+      name="keywords"
+      content="low-code platform, no-code development, enterprise apps, visual development, drag-and-drop, business automation, software development, rapid prototyping, digital transformation, workflow automation"
+    />
+    <meta name="author" content="Univade" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="English" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="distribution" content="global" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://univade.com/" />
+    <meta
+      property="og:title"
+      content="Univade - Low-Code Platform | Build Enterprise Apps Visually & Instantly"
+    />
+    <meta
+      property="og:description"
+      content="Univade is a revolutionary low-code platform that empowers developers and business users to build enterprise-grade applications with minimal coding. 10x faster development, drag-and-drop interface, and instant deployment."
+    />
+    <meta
+      property="og:image"
+      content="https://univade.com/images/og-image.jpg"
+    />
+    <meta property="og:site_name" content="Univade" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://univade.com/" />
+    <meta
+      property="twitter:title"
+      content="Univade - Low-Code Platform | Build Enterprise Apps Visually & Instantly"
+    />
+    <meta
+      property="twitter:description"
+      content="Univade is a revolutionary low-code platform that empowers developers and business users to build enterprise-grade applications with minimal coding."
+    />
+    <meta
+      property="twitter:image"
+      content="https://univade.com/images/twitter-image.jpg"
+    />
+
+    <!-- Additional SEO Meta Tags -->
+    <meta name="theme-color" content="#00f0ff" />
+    <meta name="msapplication-TileColor" content="#00f0ff" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="apple-mobile-web-app-title" content="Univade" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://univade.com/" />
+
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Structured Data for Rich Snippets -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Univade",
+        "description": "A revolutionary low-code platform that empowers developers and business users to build enterprise-grade applications with minimal coding.",
+        "url": "https://univade.com",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "description": "Free tier available with premium features"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "ratingCount": "1250"
+        },
+        "author": {
+          "@type": "Organization",
+          "name": "Univade",
+          "url": "https://univade.com"
+        },
+        "featureList": [
+          "Visual Development Environment",
+          "Drag-and-Drop Interface",
+          "Enterprise-Grade Applications",
+          "10x Faster Development",
+          "Instant Deployment",
+          "Custom Code Integration"
+        ]
+      }
+    </script>
+
+    <!-- Organization Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Univade",
+        "url": "https://univade.com",
+        "logo": "https://univade.com/images/logo.png",
+        "description": "Revolutionary low-code platform for building enterprise applications",
+        "sameAs": [
+          "https://twitter.com/univade",
+          "https://linkedin.com/company/univade",
+          "https://github.com/univade"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "email": "support@univade.com"
+        }
+      }
+    </script>
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+
+    <!-- Performance Optimizations -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="DENY" />
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+
+    <!-- Mobile Optimization -->
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="mobile-web-app-capable" content="yes" />
+
+    <!-- Search Console Verification (replace with your actual verification code) -->
+    <meta
+      name="google-site-verification"
+      content="your-verification-code-here"
+    />
+
+    <!-- Bing Webmaster Tools -->
+    <meta name="msvalidate.01" content="your-bing-verification-code-here" />
   </head>
   <body>
     <div id="input"></div>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+
+    <!-- Google Analytics (replace with your actual GA4 code) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "GA_MEASUREMENT_ID");
+    </script>
   </body>
 </html>

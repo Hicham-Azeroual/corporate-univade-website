@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { PrimeReactProvider } from "primereact/api";
+import { HelmetProvider } from "react-helmet-async";
 import HomePage from "./pages/HomePage";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
@@ -23,17 +24,19 @@ import SuccessStoriesSection from "./components/Home/SuccessStoriesSection/Succe
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
 const App = () => (
-  <PrimeReactProvider>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/license" element={<License />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </BrowserRouter>
-  </PrimeReactProvider>
+  <HelmetProvider>
+    <PrimeReactProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/license" element={<License />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
+    </PrimeReactProvider>
+  </HelmetProvider>
 );
 
 export default App;
