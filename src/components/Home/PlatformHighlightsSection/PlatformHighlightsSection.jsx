@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { Link } from "react-router-dom";
 import styles from "./PlatformHighlightsSection.module.css";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -94,9 +95,9 @@ const PlatformHighlightsSection = () => {
         ))}
       </div>
       <div className={styles.highlightsActionWrap}>
-        <a href="#start" className="btn-primary">
+        <Link to="/signup" className="btn-primary">
           Start Building Smarter Apps
-        </a>
+        </Link>
       </div>
     </section>
   );

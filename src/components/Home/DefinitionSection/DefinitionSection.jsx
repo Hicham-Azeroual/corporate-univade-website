@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { Link } from "react-router-dom";
 import styles from "./DefinitionSection.module.css";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -51,9 +52,9 @@ const DefinitionSection = () => {
             platforms accelerate digital transformation, automate workflows, and
             empower teams to deliver solutions faster and more efficiently.
           </p>
-          <a href="#start" className="btn-primary">
+          <Link to="/signup" className="btn-primary">
             Start Building Now
-          </a>
+          </Link>
         </div>
       </div>
     </section>

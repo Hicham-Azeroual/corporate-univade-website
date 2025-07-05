@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Button } from "primereact/button";
 import { Sidebar } from "primereact/sidebar";
 import { Accordion, AccordionTab } from "primereact/accordion";
+import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
 import navMenus from "../../../constants-data/navMenus";
 
@@ -26,25 +27,34 @@ const Header = () => {
   const colorAlt = "var(--color-alt)";
 
   return (
-    <header className={`${styles.headerMain} ${scrolled ? styles.headerScrolled : ''}`}>
+    <header
+      className={`${styles.headerMain} ${
+        scrolled ? styles.headerScrolled : ""
+      }`}
+    >
       {/* Logo Section */}
       <div className={styles.logoContainer}>
-        <a href="/" className={styles.logoLink}>
+        <Link to="/" className={styles.logoLink}>
           <span className={styles.logoText}>
-            {['U', 'n', 'i', 'v', 'a', 'd', 'e'].map((letter, index) => (
-              <span 
+            {["U", "n", "i", "v", "a", "d", "e"].map((letter, index) => (
+              <span
                 key={index}
                 className={styles.logoLetter}
                 style={{
-                  color: index % 2 === 0 ? colorBrand : index % 3 === 1 ? colorAccent : colorAlt,
-                  animationDelay: `${index * 0.1}s`
+                  color:
+                    index % 2 === 0
+                      ? colorBrand
+                      : index % 3 === 1
+                      ? colorAccent
+                      : colorAlt,
+                  animationDelay: `${index * 0.1}s`,
                 }}
               >
                 {letter}
               </span>
             ))}
           </span>
-        </a>
+        </Link>
       </div>
 
       {/* Desktop Navigation */}
@@ -54,18 +64,18 @@ const Header = () => {
             <li key={index} className={styles.navItem}>
               {menu.items ? (
                 <div className={styles.dropdown}>
-                  <Button 
-                    label={menu.label} 
-                    text 
+                  <Button
+                    label={menu.label}
+                    text
                     className={styles.navLink}
                     icon={menu.icon}
                     iconPos="left"
                   />
                   <div className={styles.dropdownContent}>
                     {menu.items.map((item, idx) => (
-                      <a 
-                        key={idx} 
-                        href={item.url} 
+                      <a
+                        key={idx}
+                        href={item.url}
                         className={styles.dropdownLink}
                       >
                         {item.label}
@@ -85,21 +95,23 @@ const Header = () => {
 
       {/* Desktop Action Buttons */}
       <div className={styles.actionButtons}>
-        <Button 
-          label="Book Demo" 
-          className={`${styles.actionButton} ${styles.primaryButton}`}
-          href="#demo"
-        />
-        <Button 
-          label="Start Free" 
-          className={`${styles.actionButton} ${styles.secondaryButton}`}
-          href="#start"
-        />
+        <Link to="/signup" className={styles.actionButtonLink}>
+          <Button
+            label="Book Demo"
+            className={`${styles.actionButton} ${styles.primaryButton}`}
+          />
+        </Link>
+        <Link to="/signup" className={styles.actionButtonLink}>
+          <Button
+            label="Start Free"
+            className={`${styles.actionButton} ${styles.secondaryButton}`}
+          />
+        </Link>
       </div>
 
       {/* Mobile Menu Button */}
-      <Button 
-        icon="pi pi-bars" 
+      <Button
+        icon="pi pi-bars"
         className={styles.mobileMenuButton}
         onClick={() => setSidebarVisible(true)}
         text
@@ -117,8 +129,8 @@ const Header = () => {
       >
         <div className={styles.sidebarHeader}>
           <h3 className={styles.sidebarTitle}>Menu</h3>
-          <Button 
-            icon="pi pi-times" 
+          <Button
+            icon="pi pi-times"
             className={styles.sidebarCloseButton}
             onClick={() => setSidebarVisible(false)}
             text
@@ -142,33 +154,36 @@ const Header = () => {
               }
               className={styles.accordionTab}
             >
-              {menu.items && menu.items.map((item, idx) => (
-                <a
-                  key={idx}
-                  href={item.url}
-                  className={styles.accordionLink}
-                  onClick={handleMenuItemClick}
-                >
-                  {item.label}
-                </a>
-              ))}
+              {menu.items &&
+                menu.items.map((item, idx) => (
+                  <a
+                    key={idx}
+                    href={item.url}
+                    className={styles.accordionLink}
+                    onClick={handleMenuItemClick}
+                  >
+                    {item.label}
+                  </a>
+                ))}
             </AccordionTab>
           ))}
         </Accordion>
 
         <div className={styles.sidebarActions}>
-          <Button 
-            label="Book Demo" 
-            className={`${styles.sidebarButton} ${styles.primaryButton}`}
-            onClick={handleMenuItemClick}
-            href="#demo"
-          />
-          <Button 
-            label="Start Free" 
-            className={`${styles.sidebarButton} ${styles.secondaryButton}`}
-            onClick={handleMenuItemClick}
-            href="#start"
-          />
+          <Link to="/signup" className={styles.actionButtonLink}>
+            <Button
+              label="Book Demo"
+              className={`${styles.sidebarButton} ${styles.primaryButton}`}
+              onClick={handleMenuItemClick}
+            />
+          </Link>
+          <Link to="/signup" className={styles.actionButtonLink}>
+            <Button
+              label="Start Free"
+              className={`${styles.sidebarButton} ${styles.secondaryButton}`}
+              onClick={handleMenuItemClick}
+            />
+          </Link>
         </div>
       </Sidebar>
     </header>

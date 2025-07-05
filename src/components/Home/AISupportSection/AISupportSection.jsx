@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { Link } from "react-router-dom";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Button } from "primereact/button";
@@ -67,11 +68,15 @@ const AISupportSection = () => {
               label="Try AI Builder"
               className="btn-primary p-button-rounded"
               icon="pi pi-robot"
+              as={Link}
+              to="/signup"
             />
             <Button
               label="See Demo"
               className="btn-outline p-button-rounded p-button-outlined"
               icon="pi pi-play"
+              as={Link}
+              to="/signup"
             />
           </div>
         </div>

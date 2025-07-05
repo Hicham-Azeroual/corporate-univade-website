@@ -277,3 +277,7 @@
 .shadow-lg {
   box-shadow: 0 8px 32px 0 rgba(0, 240, 255, 0.18);
 }
+
+body {
+  overflow-x: hidden;
+}

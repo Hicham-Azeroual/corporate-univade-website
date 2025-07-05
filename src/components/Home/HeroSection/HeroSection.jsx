@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { Link } from "react-router-dom";
 import styles from "./HeroSection.module.css";
 import useHeroSectionAnimation from "../../../hooks/useHeroSectionAnimation";
 
@@ -54,15 +55,15 @@ const HeroSection = () => {
             {descriptionText}
           </p>
           <div ref={btnsRef} className={styles.heroActions}>
-            <a href="#start" className={styles.heroBtn}>
+            <Link to="/signup" className={styles.heroBtn}>
               Get Started Free
-            </a>
-            <a
-              href="#demo"
+            </Link>
+            <Link
+              to="/signup"
               className={`${styles.heroBtn} ${styles.heroBtnOutline}`}
             >
               Book a Demo
-            </a>
+            </Link>
           </div>
         </div>
         {/* Right: Hero Image */}

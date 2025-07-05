@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import { Carousel } from "primereact/carousel";
 import { Button } from "primereact/button";
+import { Link } from "react-router-dom";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import styles from "./SuccessStoriesSection.module.css";
@@ -164,13 +165,9 @@ const SuccessStoriesSection = () => {
           {stories.map((story, index) => thumbnailTemplate(story, index))}
         </div>
 
-        <Button
-          label="View All Success Stories"
-          className="btn-primary font-main"
-          icon="pi pi-arrow-right"
-          iconPos="right"
-          rounded
-        />
+        <Link to="/signup" className="btn-primary font-main">
+          View All Success Stories
+        </Link>
       </div>
     </section>
   );
