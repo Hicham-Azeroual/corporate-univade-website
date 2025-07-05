@@ -1,8 +1,11 @@
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { PrimeReactProvider } from "primereact/api";
+import HomePage from "./pages/HomePage";
 import "primereact/resources/themes/lara-dark-indigo/theme.css";
 import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
 import "./index.css";
-import { PrimeReactProvider } from "primereact/api";
 import { SplitText, ScrollTrigger } from "gsap/all";
 import { gsap } from "gsap";
 import HeroSection from "./components/Home/HeroSection/HeroSection.jsx";
@@ -15,35 +18,14 @@ import AISupportSection from "./components/Home/AISupportSection/AISupportSectio
 import SuccessStoriesSection from "./components/Home/SuccessStoriesSection/SuccessStoriesSection.jsx";
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
-const App = () => {
-  // Animation function for sections
-
-  // Animate child elements with staggered effect
-
-  return (
-    <PrimeReactProvider>
-      <main className="min-h-screen">
-        <Header />
-
-        {/* Hero Section - Special animation (no ref) */}
-        <HeroSection />
-
-        {/* Sections with scroll animations */}
-        <DefinitionSection />
-
-        <PlatformHighlightsSection />
-
-        <PlatformCoreSection />
-
-        <AISupportSection />
-
-        {/* Success Stories Section - No animation */}
-        <SuccessStoriesSection />
-
-        <Footer />
-      </main>
-    </PrimeReactProvider>
-  );
-};
+const App = () => (
+  <PrimeReactProvider>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+      </Routes>
+    </BrowserRouter>
+  </PrimeReactProvider>
+);
 
 export default App;
